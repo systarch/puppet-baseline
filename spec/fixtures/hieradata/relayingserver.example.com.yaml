@@ -1,0 +1,4 @@
+---
+baseline::postfix_relayhost: relay
+
+# relay as in transport all mails for ${baseline::domain} via smtp to the publicly known mail exchangers.

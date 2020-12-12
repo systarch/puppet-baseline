@@ -1,0 +1,69 @@
+
+#### included from rsyslog/client/config.conf.erb ####
+<%= scope.function_template(["rsyslog/client/config.conf.erb"]) %>
+#### end of rsyslog/client/config.conf.erb
+
+#### included from rsyslog/client/remote.conf.erb ####
+<%= scope.function_template(["rsyslog/client/remote.conf.erb"]) %>
+#### end of rsyslog/client/remote.conf.erb ####
+
+#### included from baseline/logging.local.conf.erb ####
+
+template(name="VirtualHost_FileFormat" type="list") {
+property(name="timestamp" dateFormat="rfc3339")
+constant(value=" ")
+property(name="syslogtag")
+constant(value=" ")
+property(name="msg" spifno1stsp="on" )
+property(name="msg" droplastlf="on" )
+constant(value="\n")
+}
+
+
+# Log auth messages locally
+auth,authpriv.*                 /var/log/auth.log
+
+# Application logs
+user.*                         -/var/log/user.log;VirtualHost_FileFormat
+& stop
+
+# First some standard log files.  Log by facility.
+#
+*.*;auth,authpriv.none         -/var/log/syslog
+cron.*                          /var/log/cron.log
+daemon.*                       -/var/log/daemon.log
+kern.*                         -/var/log/kern.log
+mail.*                         -/var/log/mail.log
+
+
+#
+# Logging for the mail system.  Split it up so that
+# it is easy to write scripts to parse these files.
+#
+mail.info                      -/var/log/mail.info
+mail.warn                      -/var/log/mail.warn
+mail.err                        /var/log/mail.err
+
+*.=info;*.=notice;*.=warn;\
+auth,authpriv.none;user.*;\
+cron,daemon.none;\
+mail,news.none          -/var/log/messages
+
+*.emerg       :omusrmsg:*
+
+# Save news errors of level crit and higher in a special file.
+uucp,news.crit                 -/var/log/spooler
+
+# Save boot messages also to boot.log
+local7.*                       -/var/log/boot.log
+
+<%- if @log_local_custom -%>
+  # Custom fragment
+  <%- if @log_local_custom.is_a?(Array) -%>
+    <%- @log_local_custom.each do |line| -%>
+      <%= line %>
+    <%- end -%>
+  <%- else -%>
+    <%= @log_local_custom %>
+  <%- end -%>
+<%- end -%>

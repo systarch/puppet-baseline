@@ -1,0 +1,34 @@
+fixtures:
+  symlinks:
+    baseline: "#{source_dir}"
+  forge_modules:
+    stdlib:
+      repo: "puppetlabs/stdlib"
+      ref: "4.25.0"
+    locales:
+      repo: "saz/locales"
+      ref: "2.5.1"
+    concat:
+      repo: "puppetlabs/concat"
+      ref: "6.2.0"
+    postfix:
+      repo: "camptocamp-postfix"
+      ref: "1.9.0"
+    cron_core:
+      repo: "puppetlabs/cron_core"
+      ref: "1.0.0"
+      puppet_version: ">= 6.0.0"
+    augeas_core: "puppetlabs/augeas_core"
+    mailalias_core:
+      repo: "puppetlabs/mailalias_core"
+      puppet_version: ">= 6.0.0"
+
+  repositories:
+    fail2ban: "https://github.com/voxpupuli/puppet-fail2ban.git"
+    extlib: "https://github.com/voxpupuli/puppet-extlib.git"
+    ssh: "https://github.com/saz/puppet-ssh.git"
+    letsencrypt: "https://github.com/voxpupuli/puppet-letsencrypt.git"
+    inifile: "https://github.com/puppetlabs/puppetlabs-inifile.git"
+    augeas: "https://github.com/camptocamp/puppet-augeas.git"
+    accounts: "https://github.com/puppetlabs/puppetlabs-accounts.git"
+    mailhog: "https://github.com/systarch/systarch-mailhog.git"

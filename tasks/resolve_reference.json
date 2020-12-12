@@ -1,0 +1,19 @@
+{
+  "description": "Generate targets from systemconfig definitions in data/**/*.yaml",
+  "input_method": "stdin",
+  "parameters": {
+    "domain": {
+      "type": "Optional[String]",
+      "description": "Filter targets on the 'domain' fact (optional)"
+    },
+    "zone": {
+      "type": "Optional[String]",
+      "description": "Filter targets on the 'zone' fact (optional)"
+    }
+  },
+  "files": [
+    "ruby_task_helper/files/task_helper.rb",
+    "baseline/lib/facter/inventory.rb"
+  ],
+  "private": true
+}

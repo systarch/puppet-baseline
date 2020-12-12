@@ -1,0 +1,9 @@
+---
+#baseline::postfix_relayhost: ~
+
+# List the certificates that should be requested on this machine
+baseline::certificates:
+  "selfsigned:%{myfqdn}":
+    ensure: present
+  "letsencrypt:%{myfqdn}":
+    ensure: present
