@@ -8,6 +8,10 @@
   "source": "https://github.com/systarch/puppet-baseline",
   "dependencies": [
     {
+      "name": "puppetlabs-accounts",
+      "version_requirement": ">= 6.3.0 < 7.0.0"
+    },
+    {
       "name": "puppetlabs-stdlib",
       "version_requirement": ">= 4.25.0"
     },
