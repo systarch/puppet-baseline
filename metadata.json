@@ -1,11 +1,11 @@
 {
-  "name": "systarch-baseline",
+  "name": "systemconfig-baseline",
   "version": "1.1.0",
-  "author": "systarch",
-  "summary": "Baseline installation for all systarch systems",
+  "author": "Systemarchitektur AG",
+  "summary": "Baseline installation for systemconfig-managed systems",
   "tags": [],
-  "license": "proprietary",
-  "source": "https://github.com/systarch/puppet-baseline",
+  "license": "Apache-2.0",
+  "source": "https://github.com/systarch/systemconfig-baseline",
   "dependencies": [
     {
       "name": "puppetlabs-accounts",
@@ -32,8 +32,16 @@
       "version_requirement": ">= 2.0.0 < 3.0.0"
     },
     {
-	    "name":"puppetlabs-ruby_task_helper",
+	    "name": "puppetlabs-ruby_task_helper",
 	    "version_requirement":">= 0.4.0"
+    },
+    {
+      "name": "puppet-fail2ban",
+      "version_requirement": ">= 3.3.0 < 4.0.0"
+    },
+    {
+      "name": "puppet-letsencrypt",
+      "version_requirement": ">= 6.0.0 < 7.0.0"
     }
   ],
   "operatingsystem_support": [

@@ -2,7 +2,8 @@
 #   Main entry point for a systemconfig installation
 #
 class baseline (
-  String $owner, # <--- That's you ;-)
+  String $owner, # <--- That's you or whoever wants to receive all the automated mail ;-)
+  String $organization_name, # <--- That's your company or the organization name of the client
   Stdlib::Fqdn $fqdn        = $baseline::params::fqdn,
   Stdlib::Fqdn $domain      = $baseline::params::domain,
   String $zone              = $baseline::params::zone,
