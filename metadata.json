@@ -28,7 +28,7 @@
       "version_requirement": ">= 1.9.0 < 2.0.0"
     },
     {
-      "name": "systarch-mailhog",
+      "name": "puppet-mailhog",
       "version_requirement": ">= 2.0.0 < 3.0.0"
     },
     {
